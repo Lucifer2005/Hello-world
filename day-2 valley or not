@@ -1,0 +1,32 @@
+"""In the context of a list of numbers, a "valley" is typically defined as a sequence
+where the numbers first decrease to a certain point (the bottom of the valley),
+and then increase from there. The list `[3, 2, 1, 2, 3]` is an example of a valley."""
+#Here's a Python function that checks if a given list of numbers forms a valley:
+def is_valley(lst):
+    if len(lst) < 3:  # A valley must have at least 3 elements
+        return False
+
+    # Find the index of the minimum element
+    min_index = lst.index(min(lst))
+
+    # Check if elements to the left of min_index are in decreasing order
+    if any(lst[i] <= lst[i + 1] for i in range(min_index)):
+        return False
+
+    # Check if elements to the right of min_index are in increasing order
+    if any(lst[i] >= lst[i + 1] for i in range(min_index, len(lst) - 1)):
+        return False
+
+    return True
+
+# Test the function
+print(is_valley([3, 2, 1, 2, 3]))  # Returns: True
+print(is_valley([3, 2, 1, 2, 1]))  # Returns: False
+
+
+"""This function works by first checking if the list has at least three elements.
+Then it finds the index of the minimum element in the list. It checks if the elements to 
+the left of this minimum element are in strictly decreasing order and if the elements to 
+the right are in strictly increasing order. If both these conditions are met, 
+it returns `True`,indicating that the list forms a valley. Otherwise, it returns `False`. 
+You can test this function with different lists to see how it works."""
