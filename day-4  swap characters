@@ -1,0 +1,15 @@
+def swap_chars(s):
+    if len(s) < 2:
+        return s
+    else:
+        return s[-1] + s[1:-1] + s[0]
+
+# Test the function
+s = "Hello"
+result = swap_chars(s)
+print(result)
+"""In this program, swap_chars is a function that takes a string s as input. 
+If the length of the string is less than 2, it returns the string as it is. 
+Otherwise, it returns a new string where the first character is s[-1] (the last character of s),
+the middle part is s[1:-1] (the second to second-last characters of s), and the last character is s[0] (the first character of s). 
+The + operator then concatenates these parts into one string."""
