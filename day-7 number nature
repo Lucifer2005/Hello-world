@@ -1,0 +1,20 @@
+# get the number from the user
+num = int(input("num: "))
+
+# calculate factors and sum of factors using list comprehensions
+factors = [i for i in range(1, num) if num % i == 0]
+factor_sum = sum(factors)
+
+# print the factors in square brackets separated by commas
+print(f"factors: [{', '.join(map(str, factors))}]")
+
+# print the sum of factors
+print(f"sum: {factor_sum}")
+
+# check if the number is perfect, abundant, or deficient
+if factor_sum == num:
+    print("perfect")
+elif factor_sum > num:
+    print("abundant")
+else:
+    print("deficient")
